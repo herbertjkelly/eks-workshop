@@ -67,12 +67,18 @@ Once the console is open you will need to configure the missing parameters. Use 
 |UseExistingNodeSecurityGroups: | Leave as **'Yes'** |
 |ExistingNodeSecurityGroups: | Use the SG name that copied in the step above. (e.g. sg-0123456789abcdef)
 |NodeImageId: | Visit this [**link**](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) and select the non-GPU image for your region - **Check for empty spaces in copy/paste**|
+|VpcId: | Select your workshop VPC from the dropdown |
 |KeyName: | SSH Key Pair created earlier or any valid key will work |
 |NodeGroupName: | Leave as **spotworkers** |
 |VpcId: | Select your workshop VPC from the dropdown |
 |Subnets: | Select the 3 **private** subnets for your workshop VPC from the dropdown |
 |BootstrapArgumentsForOnDemand: | `--kubelet-extra-args --node-labels=lifecycle=OnDemand` |
 |BootstrapArgumentsForSpotFleet: | `--kubelet-extra-args '--node-labels=lifecycle=Ec2Spot --register-with-taints=spotInstance=true:PreferNoSchedule'` |
+
+{{% notice tip %}}
+You can leave the values in the **'Auto Scaling Configuration'** section as is.
+{{% /notice %}}
+
 
 #### What's going on with Bootstrap Arguments?
 
